@@ -3,21 +3,26 @@
  */
 import React,{Component} from 'react';
 import './Move.css';
-
+import PropTypes from 'prop-types';
 
 class MovePoster extends Component{
 
     render(){
-        console.log(this.props);
+        //console.log(this.props);
         return(<img src={this.props.poster}/>);
     }
 }
 
 
 class Move extends Component{
+    static propTypes = {
+        title : PropTypes.string,
+        poster : PropTypes.string,
+        cost : PropTypes.isRequired
+    }
 
     render(){
-
+        console.log(this.props);
         return(
             <div>
                 <h1> {this.props.title}</h1>
