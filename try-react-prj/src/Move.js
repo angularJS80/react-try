@@ -15,14 +15,15 @@ class MovePoster extends Component{
 
 
 class Move extends Component{
+
     static propTypes = {
         title : PropTypes.string,
         poster : PropTypes.string,
-        cost : PropTypes.isRequired
+        //cost : PropTypes.isRequired
     }
 
     render(){
-        console.log(this.props);
+        console.log("did render");
         return(
             <div>
                 <h1> {this.props.title}</h1>
