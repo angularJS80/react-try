@@ -77,18 +77,19 @@ class App extends Component {
         console.log("componentWillMount")
     }
 
+    _renderMovies = function(){
+        const movies =  this.state.movies.map((movie,index)=>{
+            return  <Move title={movie.title} poster={movie.poster} key={index} />
+        })
+        return movies;
+    }
 
     render() {
         console.log("render")
     return (
       <div className="App">
 
-          {
-              this.state.movies.map((movie,index)=>{
-
-                 return  <Move title={movie.title} poster={movie.poster} key={index} />
-              })
-          }
+          {this.state.movies.length>4 ? this._renderMovies():'Loading'}
 
 
       </div>
