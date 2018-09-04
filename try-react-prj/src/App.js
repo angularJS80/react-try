@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 
 import './App.css';
 import Move from './Move';
-
-
+import MoveEdit from './MoveEdit';
+import Counter from './components/Counter'
 
 const movies =[
     { title : "metrix"
@@ -50,33 +50,24 @@ class App extends Component {
     componentDidMount(){
         // can access Ui element
         console.log("componentDidMount")
-        // use spinner end
-        setTimeout(()=>{
+        this.setState({
+            /* movies:[
+             ...this.state.movies,
+             {
+             title:"TrainsPotting"
+             ,poster:"https://f4.bcbits.com/img/a2045320818_16.jpg"
+             }
+             ]*/
+            movies:movies
+        });
 
-            //this.state.greeting = "Hi" // can't use this line show ur console alert
-            movies.push( {
-                title:"TrainsPotting"
-                ,poster:"https://f4.bcbits.com/img/a2045320818_16.jpg"
-            });
-
-
-           this.setState({
-              /* movies:[
-                  ...this.state.movies,
-                  {
-                      title:"TrainsPotting"
-                      ,poster:"https://f4.bcbits.com/img/a2045320818_16.jpg"
-                  }
-              ]*/
-               movies:movies
-            });
-
-        },4000)
+        
     }
     componentWillMount(){
         console.log("componentWillMount")
     }
 
+    /*반복적인 Move 테그를 수행 하는데 Move 역시 Componet 를 상속하여 만들어진 컴포넌트로 App.js 에서 사용되도록 line4 에 import 되어있다.*/
     _renderMovies = function(){
         const movies =  this.state.movies.map((movie,index)=>{
             return  <Move title={movie.title} poster={movie.poster} key={index} />
@@ -84,15 +75,18 @@ class App extends Component {
         return movies;
     }
 
+    /*App 클래스는 Componet 상속으로 리엑트 구성 render 를 통해 표현해야 될 View 를 리턴한다 */
     render() {
         console.log("render")
     return (
-      <div className="App">
-
-          {this.state.movies.length>4 ? this._renderMovies():'Loading'}
-
-
+         <div className="App">
+          /*_reanderMovies 를 통해 영화목록을 가져 오는 목록을 가져온다. */
+          {this.state.movies? this._renderMovies():'Loading'}
+          <MoveEdit/>
+          <Counter/>
       </div>
+
+
     );
   }
 }
