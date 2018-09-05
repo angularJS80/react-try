@@ -9,7 +9,7 @@ import * as actions from './actions/index'
 import {Provider} from 'react-redux'
 import * as types from './actions'
 
-console.log(types.INCREMENT);
+//console.log(types.INCREMENT);
 const store = createStore(reducers); /*스토어를 만들었다*/
 /*스토어가 하는일인 디스페치
 *보낸다 엑션을 리듀서에게 보낸다
@@ -26,19 +26,15 @@ console.log(store.getState())
 /*스토어바 바뀔때 마다 로그 출력*/
 const unsubscribe = store.subscribe(
     ()=>{
-        console.log("stst")
+        //console.log("stst")
         console.log(store.getState())
     }
 )
 store.dispatch(actions.increament())
 store.dispatch(actions.setColor([255,222,222,222]))
-console.log(store.dispatch(actions.increament()));
-
-
-
 ReactDOM.render(
     <Provider store={store}>
-    <App />
+    <App store={store}/>
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();

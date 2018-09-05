@@ -19,9 +19,8 @@ const initialState = {
 
 export function counter(state ,action){
     var addVal = 1;
-    console.log(state);
-
-    console.log(types.INCREMENT)
+    //console.log(state);
+    //console.log(types.INCREMENT)
     if(typeof state ==='undefined'){
         state =  initialState
     }
@@ -37,9 +36,8 @@ export function counter(state ,action){
             addVal = 0;
             break;
     }
-    alert(action.type+addVal);
     //return {number: state.number + addVal;};
-    console.log(state.number +addVal)
+    //console.log(state.number +addVal)
     return {...state,number: state.number + addVal};
 }
 

@@ -77,13 +77,14 @@ class App extends Component {
 
     /*App 클래스는 Componet 상속으로 리엑트 구성 render 를 통해 표현해야 될 View 를 리턴한다 */
     render() {
-        console.log("render")
+        //console.log("render")
+        console.log(this.props.store)
     return (
          <div className="App">
           /*_reanderMovies 를 통해 영화목록을 가져 오는 목록을 가져온다. */
           {this.state.movies? this._renderMovies():'Loading'}
           <MoveEdit/>
-          <Counter/>
+          <Counter store={this.props.store}/>
       </div>
 
 
